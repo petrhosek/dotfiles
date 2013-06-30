@@ -18,10 +18,6 @@ PROMPT2="%F{blue}>%f"
 
 chpwd() { print -Pn "\e]2; %~/ \a" }
 
-# Setup variables
-export EDITOR=vim
-export BROWSER=links
-
 #bindkey -v
 
 #bindkey '\e[1~' vi-beginning-of-line
