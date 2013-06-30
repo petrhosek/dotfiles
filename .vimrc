@@ -97,14 +97,12 @@ if has('autocmd')
 endif
 
 " Key bindings
+nnoremap j gj
+nnoremap k gk
+
+" pastetoggle (sane indentation on pastes)
 nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>            " pastetoggle (sane indentation on pastes)
-
-nnoremap <Leader>n :NERDTreeToggle<CR>
-nnoremap <Leader>f :NERDTree<CR>:NERDTreeClose<CR>:NERDTreeFind<CR>
-
-nnoremap <Leader>t :TagbarToggle<CR>
-inoremap <Leader>t <ESC>:TagbarToggle<CR>
+set pastetoggle=<F2>
 
 " map Control-# to switch tabs
 map  <C-0> 0gt
@@ -127,3 +125,26 @@ map  <C-8> 8gt
 imap <C-8> <ESC>8gt
 map  <C-9> 9gt
 imap <C-9> <ESC>9gt
+
+" NERDTree
+map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+map <Leader>e :NERDTreeFind<CR>
+nmap <Leader>nt :NERDTreeFind<CR>
+
+" TagBar
+nnoremap <Silent> <Leader>tt :TagbarToggle<CR>
+inoremap <Silent> <Leader>tt <ESC>:TagbarToggle<CR>
+
+" Tabularize
+nmap <Leader>a& :Tabularize /&<CR>
+vmap <Leader>a& :Tabularize /&<CR>
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:<CR>
+vmap <Leader>a: :Tabularize /:<CR>
+nmap <Leader>a:: :Tabularize /:\zs<CR>
+vmap <Leader>a:: :Tabularize /:\zs<CR>
+nmap <Leader>a, :Tabularize /,<CR>
+vmap <Leader>a, :Tabularize /,<CR>
+nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
