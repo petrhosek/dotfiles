@@ -31,6 +31,7 @@ endif
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'godlygeek/tabular'
+Bundle 'tpope/vim-surround'
 if executable('ctags')
   Bundle 'majutsushi/tagbar'
 endif
