@@ -38,6 +38,7 @@ endif
 
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'chriskempson/base16-vim'
+Bundle 'altercation/vim-colors-solarized'
 colorscheme base16-default
 
 " Basic
@@ -50,8 +51,8 @@ set showmode                    " show current edit mode
 
 set nowrap                      " don't wrap lines
 augroup vimc_autocmds           " highlight characters past 78 columns
-  autocmd BufEnter * highlight OverLength ctermbg=darkred guibg=#FFD9D9
-  autocmd BufEnter * match OverLength /\%78v.*/
+  autocmd BufEnter * highlight def link Overflow gitCommitOverflow
+  autocmd BufEnter * match Overflow /\%80v.*/
 augroup END
 
 " Spaces
@@ -81,7 +82,6 @@ set noswapfile                  " no swap files either
 if has('autocmd')
   autocmd BufEnter *.json set ft=javascript
   autocmd BufEnter *.{md,markdown,mdown,mkd,mkdn,txt} set ft=markdown
-  autocmd BufEnter *.scons set ft=python
 
   " use real tabs in Makefile
   autocmd FileType make set noexpandtab
@@ -149,3 +149,8 @@ nmap <Leader>a, :Tabularize /,<CR>
 vmap <Leader>a, :Tabularize /,<CR>
 nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+
+" Local settings
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif

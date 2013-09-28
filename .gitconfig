@@ -1,14 +1,8 @@
 [alias]
-	# commit
-	ca = commit -am
 	amend = commit --amend
-	# log
 	graph = log --graph --date=short
 	changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
-	short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
 	changelog = log --pretty=format:\" * %s\"
-	shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
-	# reset
 	unstage = reset HEAD
 	uncommit = reset --soft HEAD^
 [branch]

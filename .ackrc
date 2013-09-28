@@ -1,13 +1,15 @@
---type-set=cucumber=.feature
---type-add=html=.haml,.erb
---type-add=ruby=.haml
---type-add=css=.scss,.sass
---type-add=js=.coffee
+# Ruby
+--type-add=css=scss
+--type-add=ruby=.haml,.rselm,.feature,.ru,.lock
+--type-set=coffeescript=.coffee
+--type-set=coffee=.coffee
 
---ignore-dir=tmp
---ignore-dir=coverage
---ignore-dir=doc
---ignore-dir=vendor
---ignore-dir=stories
---ignore-dir=public/system
---ignore-dir=public/uploads
+# Node.js
+--ignore-dir=node_modules
+--type-set=coffee=.coffee
+--type-set=jade=.jade
+--type-set=feature=.feature
+--type-set=json=.json
+
+# Native
+--type-set=python=.scons,SConstruct
