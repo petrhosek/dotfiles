@@ -1,0 +1,77 @@
+#define base00 #151515
+#define base01 #202020
+#define base02 #303030
+#define base03 #505050
+#define base04 #b0b0b0
+#define base05 #d0d0d0
+#define base06 #e0e0e0
+#define base07 #f5f5f5
+#define base08 #ac4142
+#define base09 #d28445
+#define base0A #f4bf75
+#define base0B #90a959
+#define base0C #75b5aa
+#define base0D #6a9fb5
+#define base0E #aa759f
+#define base0F #8f5536
+
+! XTerm configuration
+
+XTerm*foreground:   base05
+XTerm*background:   base00
+XTerm*cursorColor:  base05
+XTerm*color0:       base00
+XTerm*color1:       base08
+XTerm*color2:       base0B
+XTerm*color3:       base0A
+XTerm*color4:       base0D
+XTerm*color5:       base0E
+XTerm*color6:       base0C
+XTerm*color7:       base05
+XTerm*color8:       base03
+XTerm*color9:       base09
+XTerm*color10:      base01
+XTerm*color11:      base02
+XTerm*color12:      base04
+XTerm*color13:      base06
+XTerm*color14:      base0F
+XTerm*color15:      base07
+
+XTerm*termName: xterm-256color
+XTerm*utf8: 1
+XTerm*locale: true
+XTerm*faceName: Ubuntu Mono:size=12:antialias=false
+XTerm*font: 7x13
+XTerm*jumpScrol: true
+XTerm*multiScroll: true
+XTerm*saveLines: 16384
+
+! URxvt configuration
+
+URxvt*foreground:   base05
+URxvt*background:   base00
+URxvt*cursorColor:  base05
+URxvt*color0:       base00
+URxvt*color1:       base08
+URxvt*color2:       base0B
+URxvt*color3:       base0A
+URxvt*color4:       base0D
+URxvt*color5:       base0E
+URxvt*color6:       base0C
+URxvt*color7:       base05
+URxvt*color8:       base03
+URxvt*color9:       base09
+URxvt*color10:      base01
+URxvt*color11:      base02
+URxvt*color12:      base04
+URxvt*color13:      base06
+URxvt*color14:      base0F
+URxvt*color15:      base07
+
+URxvt*scrollBar: false
+URxvt*font: xft:Ubuntu Mono:size=12:antialias=false
+URxvt*boldFont: xft:Ubuntu Mono:style=bold:size=12:antialias=false
+URxvt*italicFont: xft:Ubuntu Mono:style=italic:size=12:antialias=false
+URxvt*boldItalicFont: xft:Ubuntu Mono:style=bolditalic:size=12:antialias=false
+URxvt*letterSpace: -1
+URxvt*saveLines: 16384
