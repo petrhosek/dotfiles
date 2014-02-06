@@ -15,7 +15,7 @@ Bundle 'gmarik/vundle'
 " Dependencies
 Bundle 'tpope/vim-sensible'
 
-Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-vinegar'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-easymotion'
 
@@ -32,6 +32,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-unimpaired'
 if executable('ctags')
   Bundle 'majutsushi/tagbar'
 endif
@@ -97,10 +98,6 @@ if has('autocmd')
   autocmd BufEnter * if expand('%:p') !~ '://' | cd %:p:h | endif
 endif
 
-" Key bindings
-nnoremap j gj
-nnoremap k gk
-
 " pastetoggle (sane indentation on pastes)
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
@@ -126,11 +123,6 @@ map  <C-8> 8gt
 imap <C-8> <ESC>8gt
 map  <C-9> 9gt
 imap <C-9> <ESC>9gt
-
-" NERDTree
-map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-map <Leader>e :NERDTreeFind<CR>
-nmap <Leader>nt :NERDTreeFind<CR>
 
 " TagBar
 nnoremap <Silent> <Leader>tt :TagbarToggle<CR>
