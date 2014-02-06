@@ -13,10 +13,17 @@ setopt HIST_IGNORE_SPACE
 
 # Setup prompt
 setopt PROMPT_SUBST
-PROMPT="%B%F{blue}%m%f%b:%F{blue}%c%f %n% $ "
+PROMPT="%B%F{blue}%n%f%b@%B%F{blue}%m%f%b:%F{blue}%c%f %n% $ "
 PROMPT2="%F{blue}>%f"
 
-chpwd() { print -Pn "\e]2; %~/ \a" }
+case $TERM in
+  xterm*)
+    precmd() { print -Pn "\e]0;%n@%m: %~\a" }
+    ;;
+  rxvt*)
+    precmd() { print -Pn "\e]0;%n@%m: %~\a" }
+    ;;
+esac
 
 #bindkey -v
 
@@ -167,8 +174,10 @@ colors
 #zmodload -i zsh/complist
 
 # Colored ls
-#eval `dircolors -b`
-export CLICOLOR=true
+#export CLICOLOR=true
+if [ -f ~/.dir_colors ]; then
+  eval `dircolors ~/.dir_colors`
+fi
 
 # Colored man pages
 export LESS_TERMCAP_mb=$'\e[00;31m'
@@ -186,7 +195,7 @@ export GROFF_NO_SGR=1
 autoload -U zmv
 
 # Aliases
-alias ls='ls -G'
+alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
@@ -207,5 +216,5 @@ alias -g .....='../../../..'
 # You may want to put all your additions into a separate file like
 # ~/.zsh_aliases, instead of adding them here directly.
 if [ -f ~/.zsh_aliases ]; then
-    . ~/.zsh_aliases
+  . ~/.zsh_aliases
 fi
