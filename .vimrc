@@ -29,7 +29,7 @@ elseif executable('ag')
   let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/nerdcommenter'
+Bundle 'tpope/vim-commentary'
 Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-unimpaired'
@@ -38,9 +38,9 @@ if executable('ctags')
 endif
 
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'chriskempson/base16-vim'
 Bundle 'altercation/vim-colors-solarized'
-colorscheme base16-default
+set background=dark
+colorscheme solarized
 
 " Basic
 filetype plugin indent on       " automatically detect file types
