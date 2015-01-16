@@ -1,59 +1,57 @@
-set nocompatible                " be iMproved
-filetype off                    " required!
+set nocompatible                " be iMproved, required
+filetype off
 
 if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
+" let Vundle manage itself, required
+Plugin 'gmarik/Vundle.vim'
 
-" Dependencies
-Bundle 'tpope/vim-sensible'
+" Plugins
+Plugin 'kien/ctrlp.vim'
+Plugin 'file:///home/ph1310/.vim/bundle/docker'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'gregsexton/gitv'
+Plugin 'file:///home/ph1310/.vim/bundle/go'
+Plugin 'godlygeek/tabular'
+Plugin 'tpope/vim-commentary'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-fugitive'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'mtth/scratch.vim'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-vinegar'
+Plugin 'Valloric/YouCompleteMe'
 
-Bundle 'tpope/vim-vinegar'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-easymotion'
+" Color schemes
+Plugin 'altercation/vim-colors-solarized'
 
-if executable('ack-grep')
-  let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-  Bundle 'mileszs/ack.vim'
-elseif executable('ack')
-  Bundle 'mileszs/ack.vim'
-elseif executable('ag')
-  Bundle 'mileszs/ack.vim'
-  let g:ackprg = 'ag --nogroup --nocolor --column'
-endif
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-commentary'
-Bundle 'godlygeek/tabular'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-if executable('ctags')
-  Bundle 'majutsushi/tagbar'
-endif
+" required, plugins available after
+call vundle#end()
+filetype plugin indent on       " automatically detect file types
 
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'altercation/vim-colors-solarized'
+" Basic
+syntax on                       " syntax highlighting
 set background=dark
 colorscheme solarized
 
-" Basic
-filetype plugin indent on       " automatically detect file types
-syntax on                       " syntax highlighting
-
-set background=dark             " assume a dark background
 set number                      " show line numbers
 set showmode                    " show current edit mode
+"set colorcolumn=80
 
 set nowrap                      " don't wrap lines
 augroup vimc_autocmds           " highlight characters past 78 columns
-  autocmd BufEnter * highlight def link Overflow gitCommitOverflow
-  autocmd BufEnter * match Overflow /\%80v.*/
+  autocmd BufWinEnter * highlight def link Overflow ColorColumn
+  "autocmd BufWinEnter * let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
+  "autocmd BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+  autocmd BufWinEnter * let w:m=matchadd('Overflow', '\%>80v.\+', -1)
 augroup END
 
 " Spaces
@@ -86,10 +84,14 @@ if has('autocmd')
 
   " use real tabs in Makefile
   autocmd FileType make set noexpandtab
-  " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+  " make Python follow PEP8 (http://www.python.org/dev/peps/pep-0008/)
   autocmd FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
   " wrap Markdown text
   autocmd FileType markdown set wrap linebreak textwidth=72 nolist
+  " use real tabs in Dockerfile
+  autocmd FileType dockerfile set noexpandtab
+  " follow Go conventions
+  autocmd FileType go set noexpandtab tabstop=4 softtabstop=4 shiftwidth=4 nolist
 
   " remember last location in file, but not for commit messages
   autocmd BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
@@ -97,6 +99,8 @@ if has('autocmd')
   " switch to working directory of the open file
   autocmd BufEnter * if expand('%:p') !~ '://' | cd %:p:h | endif
 endif
+
+" Key bindings
 
 " pastetoggle (sane indentation on pastes)
 nnoremap <F2> :set invpaste paste?<CR>
@@ -123,10 +127,6 @@ map  <C-8> 8gt
 imap <C-8> <ESC>8gt
 map  <C-9> 9gt
 imap <C-9> <ESC>9gt
-
-" TagBar
-nnoremap <Silent> <Leader>tt :TagbarToggle<CR>
-inoremap <Silent> <Leader>tt <ESC>:TagbarToggle<CR>
 
 " Tabularize
 nmap <Leader>a& :Tabularize /&<CR>

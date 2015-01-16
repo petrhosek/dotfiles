@@ -10,6 +10,7 @@
 [core]
 	autocrlf = false
 	editor = vim
+	deltaBaseCacheLimit = 1G
 [push]
 	default = tracking
 [rerere]
@@ -19,3 +20,5 @@
 [user]
 	name = Petr Hosek
 	email = petrhosek@gmail.com
+[color]
+	ui = auto

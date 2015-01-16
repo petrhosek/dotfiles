@@ -13,7 +13,7 @@ setopt HIST_IGNORE_SPACE
 
 # Setup prompt
 setopt PROMPT_SUBST
-PROMPT="%B%F{blue}%n%f%b@%B%F{blue}%m%f%b:%F{blue}%c%f %n% $ "
+PROMPT="%B%F{blue}%n%f%b@%B%F{blue}%m%f%b:%F{blue}%c%f$ "
 PROMPT2="%F{blue}>%f"
 
 case $TERM in
@@ -174,10 +174,10 @@ colors
 #zmodload -i zsh/complist
 
 # Colored ls
-#export CLICOLOR=true
 if [ -f ~/.dir_colors ]; then
   eval `dircolors ~/.dir_colors`
 fi
+#export CLICOLOR=true
 
 # Colored man pages
 export LESS_TERMCAP_mb=$'\e[00;31m'
@@ -216,5 +216,10 @@ alias -g .....='../../../..'
 # You may want to put all your additions into a separate file like
 # ~/.zsh_aliases, instead of adding them here directly.
 if [ -f ~/.zsh_aliases ]; then
-  . ~/.zsh_aliases
+    . ~/.zsh_aliases
 fi
+
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
+
+# . /etc/profile.d/z.sh
