@@ -1,0 +1,81 @@
+utf8 = "on";
+
+servers = (
+  {
+    address = "chat.freenode.net";
+    chatnet = "freenode";
+    port = "6697";
+    use_ssl = "yes";
+    ssl_cert = "~/.irssi/irssi.pem";
+    ssl_verify = "yes";
+    autoconnect = "yes";
+  }
+);
+
+chatnets = { freenode = { type = "IRC"; }; };
+
+channels = (
+  { name = "#chromium"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#imperialdoc"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "##imperialists"; chatnet = "freenode"; autojoin = "yes"; }
+);
+
+settings = {
+  core = {
+    real_name = "Petr Hosek";
+    user_name = "petrhosek";
+    nick = "petrhosek";
+  };
+  "fe-common/core" = {
+    autolog = "yes";
+    hilight_color = "= %R";
+  };
+  "fe-text" = { actlist_sort = "refnum"; };
+  "perl/core/scripts" = { nicklist_height = "61"; nicklist_width = "31"; };
+};
+
+logs = { };
+
+hilights = (
+  { text = "petrhosek"; color = "%M"; nick = "yes"; word = "yes"; }
+);
+
+windows = {
+  1 = { immortal = "yes"; name = "(status)"; level = "ALL"; };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#chromium";
+        tag = "freenode";
+      }
+    );
+  };
+  3 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#imperialdoc";
+        tag = "freenode";
+      }
+    );
+  };
+  4 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "##imperialists";
+        tag = "freenode";
+      }
+    );
+  };
+  5 = { name = "hilight"; sticky = "yes"; };
+};
+
+mainwindows = {
+  2 = { first_line = "8"; lines = "52"; };
+  5 = { first_line = "1"; lines = "7"; };
+};
