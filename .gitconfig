@@ -1,0 +1,22 @@
+[alias]
+  amend = commit --amend
+  graph = log --graph --date=short
+  changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
+  changelog = log --pretty=format:\" * %s\"
+  unstage = reset HEAD
+  uncommit = reset --soft HEAD^
+  filelog = log --name-status --find-renames --oneline
+[branch]
+  autosetuprebase = always
+  autosetupmerge = always
+[core]
+  autocrlf = false
+  deltaBaseCacheLimit = 1G
+  editor = vim
+  filemode = false
+[push]
+  default = tracking
+[rerere]
+  enabled = true
+[ui]
+  color = true
